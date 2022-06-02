@@ -8,6 +8,7 @@ urlpatterns = [
   path('gallery/', views.gallery, name='gallery'),
   path('search/', views.search_results, name='search_results'),
   path('location/<location_id>/', views.filterByLocation, name='location'),
+  re_path(r'details/(\d+)',views.detailedImage,name ='detailedImage'),
 
 ]
 
