@@ -24,7 +24,7 @@ class Location(models.Model):
 
   def __str__(self):
       return self.name
-      
+
   def saveLocation(self):
       self.save()
 
@@ -50,3 +50,33 @@ class Image(models.Model):
 
   def updateImage(self):
     self.update()
+
+  @classmethod
+  def getImages(cls):
+      allImages = cls.objects.all()
+      return allImages
+  @classmethod
+  def getImagebyId(cls,id):
+      getImage = cls.objects.filter(image_id=id)
+      return getImage
+
+  @classmethod
+  def filterByLocation(cls,id):
+      imageLocation = cls.objects.filter(location_id=id)
+      return imageLocation
+
+  @classmethod
+  def filterByCategory(cls,id):
+      imageCategory = cls.objects.filter(category_id=id)
+      return imageCategory
+  
+  @classmethod
+  def searchImage(cls,search_term):
+      searchedImage = cls.objects.filter(category__name__icontains=search_term)
+      return searchedImage
+
+
+  
+
+
+  
