@@ -43,10 +43,10 @@ def filterByLocation(request, location_id):
   View function to filter images based on their locations.
   '''
   locations = Location.objects.all()
-  categories = Category.objects.all()
+  
   try:
-      location=Image.filterByLocation(location_id)
+      showlocations =Image.filterByLocation(location_id)
 
   except Image.DoesNotExist:
       raise Http404()
-  return render(request,'location.html', {"categories": categories, "locations": locations,"location": location}) 
+  return render(request,'location.html', { "locations": locations,"showlocations": showlocations}) 

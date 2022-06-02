@@ -9,7 +9,7 @@
   {% block styles %} {% bootstrap_css %} {% endblock %}
 </head>
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       {% if searchedImage in searchedImages %}
       <h2>Found {{ searchedImages|length}} for this category</h2>
@@ -22,14 +22,14 @@
       <div class="col-md-3" style="margin-bottom: 30px">
         
         <div class="card" style="box-shadow: 5px 6px rgba(51, 65, 65, 0.2)">
-          <a href="{% url 'image' searchByCategory.id %}">
+          
             <img
               class="card-img-top image"
-              src="{{image.photo.url}}"
-              alt="{{image.name}}"
+              src="{{ searchedImage.photo.url}}"
+              alt="{{ searchedImage.name}}"
               style="height: 300px; display: block; width: 100%"
             />
-          </a>
+          
               <div class="overlay">
           
                 <p class="text">{{image.description}}</p>
