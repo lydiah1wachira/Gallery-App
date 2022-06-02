@@ -50,3 +50,15 @@ def filterByLocation(request, location_id):
   except Image.DoesNotExist:
       raise Http404()
   return render(request,'location.html', { "locations": locations,"showlocations": showlocations}) 
+
+def detailedImage(request, image_id):
+  '''
+  View function to display a larger image and its details.
+  '''
+  locations = Location.objects.all()
+  try:
+      image = Image.objects.get(id = image_id)
+  except:
+      raise Http404()
+  return render(request, 'detailed-image.html', {'image':image,"locations":locations})
+
