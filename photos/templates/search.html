@@ -11,9 +11,34 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      {% if ca%}
-
-
+      {% if searchedImage in searchedImages %}
+      <h2>Found {{ searchedImages|length}} for this category</h2>
+      {% else %}
+      <h2> Found no images for that Category </h2>
+      {% endif %}
+    </div>
+    <div class="row">
+      {% for searchedImage in searchedImages %}
+      <div class="col-md-3" style="margin-bottom: 30px">
+        
+        <div class="card" style="box-shadow: 5px 6px rgba(51, 65, 65, 0.2)">
+          
+            <img
+              class="card-img-top image"
+              src="{{image.photo.url}}"
+              alt="{{image.name}}"
+              style="height: 300px; display: block; width: 100%"
+            />
+            
+              <div class="overlay">
+          
+                <p class="text">{{image.description}}</p>
+                  
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{image.name}}</h5>
+              </div>
+            </div>
     </div>
   </div>
 </body>

@@ -11,6 +11,9 @@ def index(request):
   return render(request, 'index.html')
 
 def gallery(request):
+  '''
+  View function to display all images and their descriptions.
+  '''
   images = Image.getImages()
   locations = Location.objects.all()
   categories = Category.objects.all()
