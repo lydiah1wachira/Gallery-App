@@ -36,3 +36,16 @@ def search_results(request):
   else:
       message = "You haven't searched for any category"
       return render(request, 'search.html',{"message":message, "categories":categories,"location":locations})
+
+def filterByLocation(request, location_id):
+  '''
+  View function to filter images based on their locations.
+  '''
+  locations = Location.objects.all()
+  categories = Category.objects.all()
+  try:
+      location=Image.filterByLocation(location_id)
+
+  except Image.DoesNotExist:
+      raise Http404()
+  return render(request,'location.html', {"categories": categories, "locations": locations,"location": location}) 
