@@ -25,3 +25,14 @@ class Location(models.Model):
       return self.name
   def saveLocation(self):
       self.save()
+
+class Image(models.Model):
+  '''
+  Image model to help create new instances of an image object
+  '''
+  name = models.CharField(max_length=30)
+  description = models.TextField()
+  photo = models.ImageField(upload_to = 'gallery_images/', null=True, blank=True)
+  pub_date = models.DateTimeField(auto_now_add=True)
+  category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+  location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
