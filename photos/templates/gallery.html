@@ -16,9 +16,12 @@
       <h2 class="text-center" style="margin-bottom: 2%; margin-top: 2%">
         Gallery
       </h2>
-      {% for image in images%}
-      <div class="col-md-3" style="margin-bottom: 30px">
-        
+    </div>
+    {% for image in images%}
+    <div class="row">
+      
+    
+      <div class="col-md-3" style="margin-bottom: 30px">  
           <div class="card" style="box-shadow: 5px 6px rgba(51, 65, 65, 0.2)">
             
               <img
@@ -37,9 +40,18 @@
                   <h5 class="card-title">{{image.name}}</h5>
                 </div>
               </div>
+          </div>    
+      </div>
               
-      {% endfor %}
+      
+    </div>
+    {% endfor %}
+      
   </div>
+  {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     {% bootstrap_javascript %}
+  {% endblock %}
 </body>
 </html>
 
