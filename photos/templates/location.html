@@ -1,42 +1,37 @@
 {% load bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Archive</title>
-</head>
-<body>
-  {% include "navbar.html" %}
-  <div class="container-fluid">
-    <div class="row">
-      {% for showlocation in showlocations %}
-      <div class="col-md-3">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Archive</title>
+    {% block styles %} {% bootstrap_css %} {% endblock %}
+  </head>
+  <body>
+    {% include "navbar.html" %}
+    <div class="container-fluid">
+      <div class="row">
+        {% for showlocation in showlocations %}
         <div class="col-md-3" style="margin-bottom: 30px">
-        
           <div class="card" style="box-shadow: 5px 6px rgba(51, 65, 65, 0.2)">
-            
-              <img
-                class="card-img-top image"
-                src="{{showlocation.image.photo.url}}"
-                alt="{{showlocation.image.name}}"
-                style="height: 300px; display: block; width: 100%"
-              />
-              
-                <div class="overlay">
-            
-                  <p class="text">{{showlocation.image.description}}</p>
-                    
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">{{showlocation.image.name}}</h5>
-                </div>
-              </div>
+            <img
+              class="card-img-top image"
+              src="{{showlocation.photo.url}}"
+              alt="{{showlocation.name}}"
+              style="height: 300px; display: block; width: 100%"
+            />
+
+            <div class="overlay">
+              <p class="text">{{showlocation.image.description}}</p>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{showlocation.image.name}}</h5>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
-  </div>
-  
-</body>
+  </body>
 </html>
