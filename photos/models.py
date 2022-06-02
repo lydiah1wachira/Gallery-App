@@ -13,3 +13,15 @@ class Category(models.Model):
 
   def saveCategory(self):
       self.save()
+
+
+class Location(models.Model):
+  '''
+  class to help create new instances of location object
+  '''
+
+  name = models.CharField(max_length=30)
+  def __str__(self):
+      return self.name
+  def saveLocation(self):
+      self.save()
