@@ -7,14 +7,47 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Archive</title>
+
+  <style>
+    h1{
+      margin-top: 3%;
+      margin-bottom: 4%;
+    }
+
+    body{
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo5ds1QdCT5qpArcwzFhjBhHmzQoEf5qoHBmgEURSJE2TgsUKo9w82268Y_W6h9fxb9tE&usqp=CAU');
+      background-repeat: no-repeat;
+      background-position: fixed;
+      background-size: cover;
+    }
+
+  
+
+
+  </style>
 {% bootstrap_css %}
 </head>
 <body>
   {% include "navbar.html" %}
   <div class="container-fluid">
-    <h1 class="text-center">WELCOME TO THE ARCHIVE</h1>
+    <h1 class="text-center"  style="margin-top:3%;margin-bottom:4%;
+    color:aliceblue;">WELCOME TO THE ARCHIVE </h1>
+
+    <div class="row text-center" style="color:aliceblue;">
+      <h3 class="text-center" style="margin-bottom:2%;">About Us</h3>
+      <h4>The Archive is a gallery of free stock photos from different categories such as art, photography, fashion.</h4>
+      <h4>The photos are taken from different locations and are free to use for everyone.</h4>
+    </div>
   </div>
   
+  <div class="col-md-12 text-center" style="margin-top:3%;">
+   <a href="{% url 'gallery' %}">
+    <button type="button" class="btn btn-info btn-lg rounded-pill">View Gallery </button>
+   </a>
+    
+</div>
+  
+
   {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      {% bootstrap_javascript %}

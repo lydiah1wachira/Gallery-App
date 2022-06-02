@@ -20,14 +20,14 @@
     </div>
     <div class="row">
       {% for searchedImage in searchedImages %}
-      <div class="col-md-3" style="margin-bottom: 30px">
+      <div class="col-md-3" style="margin-bottom: 30px;margin-top:4%;">
         
         <div class="card" style="box-shadow: 5px 6px rgba(51, 65, 65, 0.2)">
           
             <img
               class="card-img-top image"
               src="{{ searchedImage.photo.url}}"
-              alt="{{ searchedImage.name}}"
+              alt="{{ image.name}}"
               style="height: 300px; display: block; width: 100%"
             />
           
@@ -38,10 +38,22 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title">{{image.name}}</h5>
+                
+              
               </div>
           </div>
+
+          
       </div>
       {% endfor %}
+      <div class="row">
+        <div class="col-md-12 text-center" style="margin-top:3%;">
+          <a href="{% url 'gallery' %}">
+           <button type="button" class="btn btn-info btn-lg rounded-pill">Back </button>
+          </a>
+           
+       </div
+      </div>
   </div>
 </body>
 </html>

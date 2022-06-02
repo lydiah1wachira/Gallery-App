@@ -8,7 +8,11 @@ def index(request):
   '''
   View function to Display the index page and its data."
   '''
-  return render(request, 'index.html')
+  images = Image.getImages()
+  locations = Location.objects.all()
+  categories = Category.objects.all()
+
+  return render(request, 'index.html', {"images":images,"locations":locations,"categories":categories})
 
 def gallery(request):
   '''
@@ -23,6 +27,7 @@ def search_results(request):
   '''
   View function to display the searched categories' images.
   '''
+  images = Image.getImages()
   locations = Location.objects.all()
   categories = Category.objects.all()
   
@@ -31,7 +36,7 @@ def search_results(request):
       searched_Images = Image.searchByCategory(search_term)
       message = f"{search_term}"
 
-      return render(request, 'search.html',{"message":message,"searchedImages": searched_Images, "categories":categories, "locations":locations})
+      return render(request, 'search.html',{"message":message,"searchedImages": searched_Images, "categories":categories, "locations":locations, "images":images})
 
   else:
       message = "You haven't searched for any category"
@@ -43,13 +48,15 @@ def filterByLocation(request, location_id):
   View function to filter images based on their locations.
   '''
   locations = Location.objects.all()
+  images = Image.getImages()
+  categories = Category.objects.all()
   
   try:
       showlocations =Image.filterByLocation(location_id)
 
   except Image.DoesNotExist:
       raise Http404()
-  return render(request,'location.html', { "locations": locations,"showlocations": showlocations}) 
+  return render(request,'location.html', { "locations": locations,"showlocations": showlocations,"images":images,"categories":categories}) 
 
 def detailedImage(request, image_id):
   '''
