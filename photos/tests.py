@@ -16,5 +16,17 @@ class CategoryTestclass(TestCase):
     categories = Category.objects.all()
     self.assertTrue(len(categories) > 0)
 
+class LocationTestclass(TestCase):
+  def setUp(self):
+    self.nairobi = Location(name = 'nairobi')
+
+  def test_instance(self):
+    self.assertTrue(isinstance(self.nairobi,Location))
+
+  def test_save_method(self):
+    self.nairobi.saveLocation()
+    locations = Location.objects.all()
+    self.assertTrue(len(locations) > 0)
+
 
 
