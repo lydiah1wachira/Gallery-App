@@ -17,6 +17,9 @@ def gallery(request):
   return render(request, 'gallery.html', {"images":images,"locations":locations, "categories":categories })
 
 def search_results(request):
+  '''
+  View function to display the searched categories' images.
+  '''
   locations = Location.objects.all()
   categories = Category.objects.all()
   
