@@ -37,6 +37,7 @@ def search_results(request):
       message = "You haven't searched for any category"
       return render(request, 'search.html',{"message":message, "categories":categories,"location":locations})
 
+
 def filterByLocation(request, location_id):
   '''
   View function to filter images based on their locations.
