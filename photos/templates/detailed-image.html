@@ -1,0 +1,35 @@
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Archive </title>
+  {% block styles %} {% bootstrap_css %} {% endblock %}
+</head>
+<body>
+  {% include "navbar.html" %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{{ image.photo.url }}" alt="{{ image.name }}">
+      </div>
+      <div class="col-md-4">
+        <h4 style="text-decoration:underline">Image Details</h4>
+        <p> <strong>Name: </strong> {{image.name}} </p>
+        <p> <strong>Description: </strong> {{image.description}}</p>
+        
+        <p><strong>Category: </strong> {{ image.category }}</p>
+        <p><strong>Location: </strong> {{ image.location }}</p>
+        <p><strong>Posted on: </strong>{{image.pub_date}}</p>
+        <a href="{% url 'gallery' %}">
+          <button type="submit" class="btn btn-sm btn-dark">Back</button>
+        </a>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+  
+</body>
+</html>
