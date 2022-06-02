@@ -36,3 +36,15 @@ class Image(models.Model):
   pub_date = models.DateTimeField(auto_now_add=True)
   category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
   location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
+
+  def __str__(self):
+      return self.description
+
+  def save_image(self):
+      self.save()
+
+  def delete_image(self):
+      self.delete()
+
+  def updateImage(self):
+    self.update()
